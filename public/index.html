@@ -9,7 +9,7 @@
     />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Real income presenter</title>
+    <title>Income inspection</title>
     <style>
       body {
         font-family: "Poppins", sans-serif;
@@ -21,14 +21,10 @@
       }
       .form-div {
         margin: auto;
-        width: 30%;
+        width: 40%;
         padding-bottom: 10px;
       }
-      form {
-        text-align: left;
-        margin-bottom: 10px;
-        font-size: 50;
-      }
+
       h1 {
         text-align: center;
         font-weight: 700;
@@ -51,19 +47,20 @@
       }
 
       footer {
-        font-style: italic;
-        font-size: small;
-        margin-top: 10px;
         margin: auto;
+        margin-top: 10px;
+        width: 40%;
       }
-
-      footer p {
-        text-align: center;
+      .footerContainer {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 50px;
       }
     </style>
   </head>
   <body>
-    <h1>Personal income check up</h1>
+    <h1>Income inspection</h1>
     <div class="form-div">
       <p>
         How much more do you earn now compared to when you started working? How
@@ -72,25 +69,31 @@
       </p>
 
       <p>
-        How has everybody else wages changed compared to yours and where in the
-        income distribution are you placed, now and when you started working?
+        How has other peoples wages changed? Where in the income distribution
+        are you placed, now and when you started working?
       </p>
-      <p>Find out by filling out the form below, and press submit.</p>
+      <p>
+        Find out by filling out the form below, and press submit. No data is
+        saved.
+      </p>
 
       <form id="dataForm">
         <label for="startSalary" id="startSalaryLabel"
-          >Your monthly wage when starting working:</label
+          >Please provide your monthly wage when starting working, in
+          SEK:</label
         >
         <input type="text" id="startSalary" name="startSalary" /><br /><br />
         <label for="currentSalary" id="currentSalaryLabel"
-          >Your monthly wage today:</label
+          >Please provide your current monthly wage, in SEK:</label
         >
         <input
           type="text"
           id="currentSalary"
           name="currentSalary"
         /><br /><br />
-        <label for="startYear">Year you started working:</label>
+        <label for="startYear"
+          >Please choose the year you started working:</label
+        >
         <select id="startYear" name="startYear">
           <option value="2005">2005</option>
           <option value="2006">2006</option>
@@ -180,12 +183,18 @@
     </table>
 
     <footer>
-      <p>Author: pajasthecat</p>
-      <p>
-        <a href="mailto:henrik.forsberg1990@gmail.com"
-          >henrik.forsberg1990@gmail.com</a
+      <div class="footerContainer">
+        <a href="mailto: henrik.forsberg1990@gmail.com">
+          <img src="icons\email.png" alt=""
+        /></a>
+        <a
+          href="https://github.com/pajasthecat/real-income-presentor"
+          ,
+          target="_blank"
         >
-      </p>
+          <img src="icons\github.png" alt="" />
+        </a>
+      </div>
     </footer>
     <script type="module" src="index.js"></script>
   </body>
