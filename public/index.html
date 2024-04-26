@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Real income presenter</title>
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+      }
+      p {
+        text-align: left;
+        font-weight: 300;
+        font-style: normal;
+      }
+      .form-div {
+        margin: auto;
+        width: 30%;
+        padding-bottom: 10px;
+      }
+      form {
+        text-align: left;
+        margin-bottom: 10px;
+        font-size: 50;
+      }
+      h1 {
+        text-align: center;
+        font-weight: 700;
+        font-style: normal;
+      }
+      table {
+        border-collapse: collapse;
+        width: 40%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      td,
+      th {
+        border: 1px solid #dddddd;
+        text-align: center;
+        padding: 8px;
+        font-weight: 300;
+        font-style: normal;
+      }
+
+      footer {
+        font-style: italic;
+        font-size: small;
+        margin-top: 10px;
+        margin: auto;
+      }
+
+      footer p {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Personal income check up</h1>
+    <div class="form-div">
+      <p>
+        How much more do you earn now compared to when you started working? How
+        much of that is real wage growth and how much is just keeping up with
+        inflation?
+      </p>
+
+      <p>
+        How has everybody else wages changed compared to yours and where in the
+        income distribution are you placed, now and when you started working?
+      </p>
+      <p>Find out by filling out the form below, and press submit.</p>
+
+      <form id="dataForm">
+        <label for="startSalary" id="startSalaryLabel"
+          >Your monthly wage when starting working:</label
+        >
+        <input type="text" id="startSalary" name="startSalary" /><br /><br />
+        <label for="currentSalary" id="currentSalaryLabel"
+          >Your monthly wage today:</label
+        >
+        <input
+          type="text"
+          id="currentSalary"
+          name="currentSalary"
+        /><br /><br />
+        <label for="startYear">Year you started working:</label>
+        <select id="startYear" name="startYear">
+          <option value="2005">2005</option>
+          <option value="2006">2006</option>
+          <option value="2007">2007</option>
+          <option value="2008">2008</option>
+          <option value="2009">2009</option>
+          <option value="2010">2010</option>
+          <option value="2012">2012</option>
+          <option value="2013">2013</option>
+          <option value="2014">2014</option>
+          <option value="2015">2015</option>
+          <option value="2016">2016</option>
+          <option value="2017">2017</option>
+          <option value="2018">2018</option>
+          <option value="2019">2019</option>
+          <option value="2020">2020</option>
+          <option value="2021">2020</option>
+          <option value="2022">2020</option>
+        </select>
+        <input type="submit" value="Submit" />
+      </form>
+    </div>
+    <table>
+      <tr>
+        <th>How has you wage increased since you started working?</th>
+      </tr>
+      <tr>
+        <th>Nominal wage increase in kr</th>
+        <td id="nominalWage">0 kr</td>
+      </tr>
+      <tr>
+        <th>Nominal wage increase in %</th>
+        <td id="nominalWagePer">0 %</td>
+      </tr>
+      <tr>
+        <th>Real wage increase in kr</th>
+        <td id="realWage">0 kr</td>
+      </tr>
+
+      <tr>
+        <th>Real wage increase in %</th>
+        <td id="realWagePer">0 %</td>
+      </tr>
+    </table>
+
+    <br />
+
+    <table>
+      <tr>
+        <th id="incomeDistStart"></th>
+      </tr>
+      <tr>
+        <th>10th percentil</th>
+        <th>25th percentil</th>
+        <th>50th percentil</th>
+        <th>75th percentil</th>
+        <th>90th percentil</th>
+      </tr>
+      <tr>
+        <td id="per10"></td>
+        <td id="per25"></td>
+        <td id="per50"></td>
+        <td id="per75"></td>
+        <td id="per90"></td>
+      </tr>
+    </table>
+    <br />
+
+    <table>
+      <tr>
+        <th>Where are you in the income distribution now?</th>
+      </tr>
+      <tr>
+        <th>10th percentil</th>
+        <th>25th percentil</th>
+        <th>50th percentil</th>
+        <th>75th percentil</th>
+        <th>90th percentil</th>
+      </tr>
+      <tr>
+        <td id="per10_now"></td>
+        <td id="per25_now"></td>
+        <td id="per50_now"></td>
+        <td id="per75_now"></td>
+        <td id="per90_now"></td>
+      </tr>
+    </table>
+
+    <footer>
+      <p>Author: pajasthecat</p>
+      <p>
+        <a href="mailto:henrik.forsberg1990@gmail.com"
+          >henrik.forsberg1990@gmail.com</a
+        >
+      </p>
+    </footer>
+    <script type="module" src="index.js"></script>
+  </body>
+</html>
