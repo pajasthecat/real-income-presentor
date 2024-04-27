@@ -30,14 +30,21 @@ const getWageData = (income, data) => {
 
   const nominalWageIncreaseInPercent = nominalWageIncrease / startIncome;
 
-  const realWageIncrease =
-    (cpiStart.averageCpi / cpiToday.averageCpi) * todayIncome - startIncome;
+  const index = cpiStart.averageCpi / cpiToday.averageCpi;
+  const realWageIncrease = index * todayIncome - startIncome;
 
   const realWageIncreaseInPercent = realWageIncrease / startIncome;
+
+  const salaryTodayInThenCurrency = startIncome * index;
+  const salaryStartInTodayCurrency = startIncome / index;
 
   return {
     real: { realWageIncreaseInPercent, realWageIncrease },
     nominal: { nominalWageIncreaseInPercent, nominalWageIncrease },
+    normalizedSalaries: {
+      salaryStartInTodayCurrency,
+      salaryTodayInThenCurrency,
+    },
   };
 };
 

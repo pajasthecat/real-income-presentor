@@ -1,15 +1,24 @@
 import data from "./resources/data.json" assert { type: "json" };
 import { getIncomeData, round } from "./src/incomeService.js";
 
-const setTableHeader = (startYear) =>
-  (document.getElementById(
+const setTableHeaders = (startYear) => {
+  document.getElementById(
     "incomeDistStart"
-  ).innerHTML = `Where where you in the income distribution in ${startYear}?`);
+  ).innerHTML = `Where where you in the income distribution in ${startYear}?`;
+
+  document.getElementById(
+    "startWageInNowCurrencyLabel"
+  ).innerHTML = `Your wage today calculated in ${startYear} SEK?`;
+
+  document.getElementById(
+    "todayWageInThenCurrencyLabel"
+  ).innerHTML = `Your wage in ${startYear} calculated in today's SEK?`;
+};
 
 const setStartValues = () => {
   const startYear = document.getElementById("startYear");
 
-  setTableHeader(startYear.value);
+  setTableHeaders(startYear.value);
 };
 
 const validateInput = (startIncome, todayIncome) => {
@@ -37,6 +46,10 @@ const setTableValues = (incomeData) => {
     wage: {
       nominal: { nominalWageIncrease, nominalWageIncreaseInPercent },
       real: { realWageIncrease, realWageIncreaseInPercent },
+      normalizedSalaries: {
+        salaryStartInTodayCurrency,
+        salaryTodayInThenCurrency,
+      },
     },
   } = incomeData;
 
@@ -54,6 +67,14 @@ const setTableValues = (incomeData) => {
 
   document.getElementById("nominalWage").innerHTML = `${round(
     nominalWageIncrease
+  )} kr`;
+
+  document.getElementById("startWageInNowCurrency").innerHTML = `${round(
+    salaryStartInTodayCurrency
+  )} kr`;
+
+  document.getElementById("todayWageInThenCurrency").innerHTML = `${round(
+    salaryTodayInThenCurrency
   )} kr`;
 
   if (start) {
@@ -77,7 +98,7 @@ form.addEventListener("submit", (event) => {
   const startSalary = document.getElementById("startSalary");
   const currentSalary = document.getElementById("currentSalary");
 
-  setTableHeader(startYearInput.value);
+  setTableHeaders(startYearInput.value);
 
   event.preventDefault();
 

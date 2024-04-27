@@ -30,6 +30,11 @@
         font-weight: 700;
         font-style: normal;
       }
+      h3 {
+        text-align: center;
+        font-weight: 500;
+        font-style: normal;
+      }
       table {
         border-collapse: collapse;
         width: 40%;
@@ -57,6 +62,15 @@
         justify-content: center;
         gap: 50px;
       }
+
+      @media screen and (max-width: 800px) {
+        table,
+        footer,
+        .form-div {
+          width: 90%;
+          font-size: small;
+        }
+      }
     </style>
   </head>
   <body>
@@ -76,24 +90,8 @@
         Find out by filling out the form below, and press submit. No data is
         saved.
       </p>
-
       <form id="dataForm">
-        <label for="startSalary" id="startSalaryLabel"
-          >Please provide your monthly wage when starting working, in
-          SEK:</label
-        >
-        <input type="text" id="startSalary" name="startSalary" /><br /><br />
-        <label for="currentSalary" id="currentSalaryLabel"
-          >Please provide your current monthly wage, in SEK:</label
-        >
-        <input
-          type="text"
-          id="currentSalary"
-          name="currentSalary"
-        /><br /><br />
-        <label for="startYear"
-          >Please choose the year you started working:</label
-        >
+        <label for="startYear">Year you started working:</label>
         <select id="startYear" name="startYear">
           <option value="2005">2005</option>
           <option value="2006">2006</option>
@@ -113,13 +111,25 @@
           <option value="2021">2020</option>
           <option value="2022">2020</option>
         </select>
+        <br /><br />
+        <label for="startSalary" id="startSalaryLabel"
+          >Monthly wage when starting working, in SEK:</label
+        >
+        <input type="text" id="startSalary" name="startSalary" /><br /><br />
+        <label for="currentSalary" id="currentSalaryLabel"
+          >Current monthly wage, in SEK:</label
+        >
+        <input
+          type="text"
+          id="currentSalary"
+          name="currentSalary"
+        /><br /><br />
         <input type="submit" value="Submit" />
       </form>
     </div>
+
+    <h3>Wage growth</h3>
     <table>
-      <tr>
-        <th>How has you wage increased since you started working?</th>
-      </tr>
       <tr>
         <th>Nominal wage increase in kr</th>
         <td id="nominalWage">0 kr</td>
@@ -137,14 +147,21 @@
         <th>Real wage increase in %</th>
         <td id="realWagePer">0 %</td>
       </tr>
+
+      <tr>
+        <th id="todayWageInThenCurrencyLabel"></th>
+        <td id="todayWageInThenCurrency">0 kr</td>
+      </tr>
+      <tr>
+        <th id="startWageInNowCurrencyLabel"></th>
+        <td id="startWageInNowCurrency">0 kr</td>
+      </tr>
     </table>
 
     <br />
 
+    <h3 id="incomeDistStart"></h3>
     <table>
-      <tr>
-        <th id="incomeDistStart"></th>
-      </tr>
       <tr>
         <th>10th percentil</th>
         <th>25th percentil</th>
@@ -162,10 +179,8 @@
     </table>
     <br />
 
+    <h3>Where are you in the income distribution now?</h3>
     <table>
-      <tr>
-        <th>Where are you in the income distribution now?</th>
-      </tr>
       <tr>
         <th>10th percentil</th>
         <th>25th percentil</th>
