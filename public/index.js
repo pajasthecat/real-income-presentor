@@ -13,6 +13,10 @@ const setTableHeaders = (startYear) => {
   document.getElementById(
     "todayWageInThenCurrencyLabel"
   ).innerHTML = `Your wage in ${startYear} calculated in today's SEK?`;
+
+  document.getElementById(
+    "startSalaryLabel"
+  ).innerHTML = `Monthly wage in ${startYear} working, SEK:`;
 };
 
 const setStartValues = () => {
