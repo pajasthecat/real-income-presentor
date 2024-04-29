@@ -35,7 +35,7 @@ const getWageData = (income, data) => {
 
   const realWageIncreaseInPercent = realWageIncrease / startIncome;
 
-  const salaryTodayInThenCurrency = startIncome * index;
+  const salaryTodayInThenCurrency = todayIncome * index;
   const salaryStartInTodayCurrency = startIncome / index;
 
   return {
