@@ -1,4 +1,9 @@
-import data from "./resources/data.json" assert { type: "json" };
+const data = (
+  await import("./data/data.json", {
+    with: { type: "json" },
+  })
+).default;
+
 import { getIncomeData, round } from "./src/incomeService.js";
 
 const setTableHeaders = (startYear) => {
