@@ -7,6 +7,9 @@ jobs:
   checkout:
     name: Run pipeline and deploy
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
     environment: Prod
     steps:
       - name: Checkout
