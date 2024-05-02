@@ -1,8 +1,7 @@
 import fs from "fs";
 
 export const saveData = (data) => {
-  fs.writeFileSync(
-    "./public/scripts/data/pipeline-data.json",
-    JSON.stringify(data)
-  );
+  const path = "./public/scripts/data/pipeline-data.json";
+  console.log(`Writing data to path ${path}`);
+  fs.writeFileSync(path, JSON.stringify(data));
 };

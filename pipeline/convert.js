@@ -59,6 +59,8 @@ const mergeData = (groupedCpiResult, wageData) =>
   });
 
 export const convertData = (wageSpread1, wageSpread2, cpiData) => {
+  console.log("Mapping data");
+
   const wageData = mapWageData(wageSpread1)
     .concat(mapWageData(wageSpread2))
     .sort((first, second) => first.year - second.year);
