@@ -9,15 +9,15 @@ import { getIncomeData, round } from "./src/incomeService.js";
 const setTableHeaders = (startYear) => {
   document.getElementById(
     "incomeDistStart"
-  ).innerHTML = `Where where you in the income distribution in ${startYear}?`;
+  ).innerHTML = `Income distribution in ${startYear}`;
 
   document.getElementById(
-    "startWageInNowCurrencyLabel"
-  ).innerHTML = `Your wage today calculated in ${startYear} SEK?`;
+    "startSalaryInTodaysCurrencyLabel"
+  ).innerHTML = `Equivalent to your start wage in todays SEK.`;
 
   document.getElementById(
     "todayWageInThenCurrencyLabel"
-  ).innerHTML = `Your wage in ${startYear} calculated in today's SEK?`;
+  ).innerHTML = `Your wage today calculated in ${startYear} SEK`;
 
   document.getElementById(
     "startSalaryLabel"
@@ -56,7 +56,7 @@ const setTableValues = (incomeData) => {
       nominal: { nominalWageIncrease, nominalWageIncreaseInPercent },
       real: { realWageIncrease, realWageIncreaseInPercent },
       normalizedSalaries: {
-        salaryStartInTodayCurrency,
+        startSalaryInTodaysCurrency,
         salaryTodayInThenCurrency,
       },
     },
@@ -78,8 +78,8 @@ const setTableValues = (incomeData) => {
     nominalWageIncrease
   )} kr`;
 
-  document.getElementById("startWageInNowCurrency").innerHTML = `${round(
-    salaryStartInTodayCurrency
+  document.getElementById("startSalaryInTodaysCurrency").innerHTML = `${round(
+    startSalaryInTodaysCurrency
   )} kr`;
 
   document.getElementById("todayWageInThenCurrency").innerHTML = `${round(
@@ -90,13 +90,13 @@ const setTableValues = (incomeData) => {
     const oldStart = localStorage.getItem("start");
     localStorage.setItem("start", start);
     if (oldStart) document.getElementById(oldStart).innerHTML = "";
-    document.getElementById(start).innerHTML = "X";
+    document.getElementById(start).innerHTML = "You are here";
   }
   if (today) {
     const oldToday = localStorage.getItem("today");
     localStorage.setItem("today", today);
     if (oldToday) document.getElementById(`${oldToday}_now`).innerHTML = "";
-    document.getElementById(`${today}_now`).innerHTML = "X";
+    document.getElementById(`${today}_now`).innerHTML = "You are here";
   }
 };
 

@@ -114,6 +114,7 @@ const getWageData2 = async () => {
 };
 
 export const collectData = async () => {
+  console.log("Fetching data");
   const cpiData = await getCpiData();
   const wageData1 = await getWageData();
   const wageData2 = await getWageData2();
