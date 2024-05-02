@@ -1,15 +1,25 @@
-name: Branch
+name: Run pipeline
 
 on:
   workflow_dispatch:
 
 jobs:
-  quality-check:
-    name: Quality check
+  checkout:
+    name: Run pipeline
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Run data pipeline
-        uses: ./.github/actions/run-pipeline
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+        shell: bash
+
+      - name: Run script
+        run: node pipeline\index.js
+        shell: bash
