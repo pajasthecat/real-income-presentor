@@ -4,6 +4,10 @@
   "type": "module",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "run-data-pipeline": "node pipeline/index.js",
+    "dev-server": "node dev-server.js"
+  },
   "dependencies": {
     "express": "^4.19.2"
   }

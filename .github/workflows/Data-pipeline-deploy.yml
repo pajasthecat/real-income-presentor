@@ -24,7 +24,7 @@ jobs:
         shell: bash
 
       - name: Run script
-        run: node pipeline/index.js
+        run: yarn run-data-pipeline
         shell: bash
 
       - name: Publish to Cloudflare Pages
