@@ -90,13 +90,13 @@ const setTableValues = (incomeData) => {
     const oldStart = localStorage.getItem("start");
     localStorage.setItem("start", start);
     if (oldStart) document.getElementById(oldStart).innerHTML = "";
-    document.getElementById(start).innerHTML = "You";
+    document.getElementById(start).innerHTML = "You are here";
   }
   if (today) {
     const oldToday = localStorage.getItem("today");
     localStorage.setItem("today", today);
     if (oldToday) document.getElementById(`${oldToday}_now`).innerHTML = "";
-    document.getElementById(`${today}_now`).innerHTML = "You";
+    document.getElementById(`${today}_now`).innerHTML = "You are here";
   }
 };
 
