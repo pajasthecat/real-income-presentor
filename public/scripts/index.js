@@ -90,7 +90,7 @@ const setTableValues = (incomeData) => {
     const oldStart = localStorage.getItem("start");
     localStorage.setItem("start", start);
     if (oldStart) document.getElementById(oldStart).innerHTML = "";
-    document.getElementById(start).innerHTML = "You are here";
+    document.getElementById(start).innerHTML = "You were here";
   }
   if (today) {
     const oldToday = localStorage.getItem("today");
