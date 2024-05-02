@@ -1,5 +1,5 @@
 const data = (
-  await import("./resources/data.json", {
+  await import("./data/data.json", {
     with: { type: "json" },
   })
 ).default;
