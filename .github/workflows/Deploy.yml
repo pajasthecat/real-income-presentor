@@ -23,3 +23,7 @@ jobs:
       - name: Run script
         run: node pipeline/index.js
         shell: bash
+
+      - name: See saved data
+        run: cat data.json
+        shell: bash
