@@ -1,4 +1,4 @@
-name: Run pipeline
+name: Deploy
 
 on:
   workflow_dispatch:
@@ -23,10 +23,6 @@ jobs:
 
       - name: Run script
         run: node pipeline/index.js
-        shell: bash
-
-      - name: See saved data
-        run: cat data.json
         shell: bash
 
       - name: Publish to Cloudflare Pages
