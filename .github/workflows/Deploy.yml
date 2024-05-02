@@ -32,5 +32,5 @@ jobs:
           accountId: c998444368535e9100cd4e83bb76fb41
           projectName: real-income-presentor
           directory: public
-          # Enable Wrangler v3
           wranglerVersion: "3"
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
