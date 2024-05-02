@@ -6,4 +6,4 @@ const data = await response.json();
 
 console.log({ data });
 
-writeFileSync("data.json", JSON.stringify(data));
+writeFileSync("public/scripts/data/pipeline-data.json", JSON.stringify(data));

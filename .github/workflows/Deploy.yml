@@ -5,8 +5,9 @@ on:
 
 jobs:
   checkout:
-    name: Run pipeline
+    name: Run pipeline and deploy
     runs-on: ubuntu-latest
+    environment: Prod
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -27,3 +28,13 @@ jobs:
       - name: See saved data
         run: cat data.json
         shell: bash
+
+      - name: Publish to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: c998444368535e9100cd4e83bb76fb41
+          projectName: real-income-presentor
+          directory: public
+          # Enable Wrangler v3
+          wranglerVersion: "3"
