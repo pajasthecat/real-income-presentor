@@ -1,11 +1,10 @@
-name: Deploy
+name: Run pipeline and deploy
 
 on:
   workflow_dispatch:
 
 jobs:
   checkout:
-    name: Run pipeline and deploy
     runs-on: ubuntu-latest
     permissions:
       contents: read
