@@ -1,0 +1,17 @@
+name: Run pipeline
+description: "Fetches, transforms and saves data to be used by page"
+
+runs:
+  using: "composite"
+  steps:
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+    - name: Install dependencies
+      run: yarn install --frozen-lockfile
+      shell: bash
+
+    - name: Install dependencies
+      run: yarn install --frozen-lockfile
+      shell: bash

@@ -1,0 +1,15 @@
+name: Branch
+
+on:
+  workflow_dispatch:
+
+jobs:
+  quality-check:
+    name: Quality check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run data pipeline
+        uses: ./.github/actions/run-pipeline
