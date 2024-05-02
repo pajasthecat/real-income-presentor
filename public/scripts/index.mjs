@@ -1,8 +1,4 @@
-const data = (
-  await import("../scripts/data/pipeline-data.json", {
-    with: { type: "json" },
-  })
-).default;
+const data = await (await fetch("../scripts/data/pipeline-data.json")).json();
 
 import {
   getIncomeData,
