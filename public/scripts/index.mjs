@@ -8,7 +8,7 @@ import {
   getIncomeData,
   round,
   formatAndRoundCurrency,
-} from "./src/incomeService.js";
+} from "./src/incomeService.mjs";
 
 const setTableHeaders = (startYear) => {
   document.getElementById(
