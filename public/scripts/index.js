@@ -1,5 +1,5 @@
 const data = (
-  await import("./data/data.json", {
+  await import("./data/pipeline-data.json", {
     with: { type: "json" },
   })
 ).default;
