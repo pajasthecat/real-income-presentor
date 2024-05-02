@@ -1,5 +1,5 @@
 const data = (
-  await import("./data/pipeline-data.json", {
+  await import("../scripts/data/pipeline-data.json", {
     with: { type: "json" },
   })
 ).default;
@@ -8,7 +8,7 @@ import {
   getIncomeData,
   round,
   formatAndRoundCurrency,
-} from "./src/incomeService.mjs";
+} from "../scripts/src/incomeService.mjs";
 
 const setTableHeaders = (startYear) => {
   document.getElementById(
