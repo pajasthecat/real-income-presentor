@@ -1,5 +1,10 @@
 export const round = (number) => Math.round(number * 100) / 100;
 
+export const formatAndRoundCurrency = (price) => {
+  const roundedPrice = round(price);
+  return new Intl.NumberFormat("en-US").format(roundedPrice);
+};
+
 export const getIncomeData = (income, data) => {
   const percentile = getPercentileData(income, data);
 

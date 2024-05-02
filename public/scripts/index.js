@@ -4,7 +4,11 @@ const data = (
   })
 ).default;
 
-import { getIncomeData, round } from "./src/incomeService.js";
+import {
+  getIncomeData,
+  round,
+  formatAndRoundCurrency,
+} from "./src/incomeService.js";
 
 const setTableHeaders = (startYear) => {
   document.getElementById(
@@ -66,7 +70,7 @@ const setTableValues = (incomeData) => {
     100 * round(realWageIncreaseInPercent)
   } %`;
 
-  document.getElementById("realWage").innerHTML = `${round(
+  document.getElementById("realWage").innerHTML = `${formatAndRoundCurrency(
     realWageIncrease
   )} kr`;
 
@@ -74,17 +78,17 @@ const setTableValues = (incomeData) => {
     100 * nominalWageIncreaseInPercent
   )} %`;
 
-  document.getElementById("nominalWage").innerHTML = `${round(
+  document.getElementById("nominalWage").innerHTML = `${formatAndRoundCurrency(
     nominalWageIncrease
   )} kr`;
 
-  document.getElementById("startSalaryInTodaysCurrency").innerHTML = `${round(
-    startSalaryInTodaysCurrency
-  )} kr`;
+  document.getElementById(
+    "startSalaryInTodaysCurrency"
+  ).innerHTML = `${formatAndRoundCurrency(startSalaryInTodaysCurrency)} kr`;
 
-  document.getElementById("todayWageInThenCurrency").innerHTML = `${round(
-    salaryTodayInThenCurrency
-  )} kr`;
+  document.getElementById(
+    "todayWageInThenCurrency"
+  ).innerHTML = `${formatAndRoundCurrency(salaryTodayInThenCurrency)} kr`;
 
   if (start) {
     const oldStart = localStorage.getItem("start");
