@@ -1,5 +1,7 @@
 body {
   font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  background-color: #eeeeee;
 }
 p {
   text-align: left;
@@ -29,6 +31,26 @@ table {
   margin-right: auto;
 }
 
+.button {
+  display: inline-block;
+  outline: 0;
+  cursor: pointer;
+  border: none;
+  padding: 0 15px;
+  height: 45px;
+  line-height: 45px;
+  border-radius: 7px;
+  font-weight: 400;
+  font-size: 16px;
+  background: #eeeeee;
+  color: #696969;
+  box-shadow: 0 4px 14px 0 rgb(0 0 0 / 50%);
+}
+
+.button:focus {
+  font-weight: bold;
+}
+
 td,
 th {
   border: 1px solid #dddddd;
@@ -40,15 +62,27 @@ th {
 
 footer {
   margin: auto;
-  margin-top: 10px;
+  margin-top: 20px;
   width: 40%;
 }
 
 .footerContainer {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.footerImageContainer {
+  display: flex;
   flex-direction: row;
   justify-content: center;
-  gap: 50px;
+  gap: 40px;
+}
+
+.footerTextContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 img {
