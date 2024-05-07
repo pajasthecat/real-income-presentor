@@ -13,15 +13,15 @@ const setTableHeaders = (startYear) => {
 
   document.getElementById(
     "startSalaryInTodaysCurrencyLabel"
-  ).innerHTML = `Equivalent to your start wage in todays, SEK.`;
+  ).innerHTML = `Equivalent to your start wage in todays SEK.`;
 
   document.getElementById(
     "todayWageInThenCurrencyLabel"
-  ).innerHTML = `Your wage today calculated in ${startYear}, SEK`;
+  ).innerHTML = `Your wage today calculated in ${startYear} SEK`;
 
   document.getElementById(
     "startSalaryLabel"
-  ).innerHTML = `Monthly wage in ${startYear}, SEK:`;
+  ).innerHTML = `Monthly wage in ${startYear} SEK:`;
 };
 
 const setStartValues = () => {

@@ -55,6 +55,17 @@ table {
   touch-action: manipulation;
 }
 
+input {
+  font-weight: 400;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+}
+select {
+  font-weight: 400;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+}
+
 td,
 th {
   border: 1px solid #dddddd;
