@@ -16,4 +16,4 @@ Data is from SCB.
 
 To fetch and map the data I have a ETL pipeline to fetch the income data form SCB and then transform it and save it in the `/public` folder.
 
-This can be done manually on the dev machine or in a pipeline in github.
+I have a cron jb that fetches the data once a month. This can also be done manually on the dev machine or in a pipeline in github.
