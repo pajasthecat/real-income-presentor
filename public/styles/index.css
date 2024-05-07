@@ -1,12 +1,14 @@
 body {
   font-family: "Poppins", sans-serif;
   font-size: 16px;
-  background-color: #eeeeee;
+  background-color: #fbf9f2;
+  color: #080808;
 }
 p {
   text-align: left;
   font-weight: 300;
   font-style: normal;
+  line-height: 1.9;
 }
 .form-div {
   margin: auto;
