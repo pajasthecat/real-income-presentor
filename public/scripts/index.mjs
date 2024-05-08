@@ -13,11 +13,11 @@ const setTableHeaders = (startYear) => {
 
   document.getElementById(
     "startSalaryInTodaysCurrencyLabel"
-  ).innerHTML = `Equivalent to your start wage in todays SEK.`;
+  ).innerHTML = `Equivalent to your start salary in todays SEK.`;
 
   document.getElementById(
     "todayWageInThenCurrencyLabel"
-  ).innerHTML = `Your wage today calculated in ${startYear} SEK`;
+  ).innerHTML = `Your salary today calculated in ${startYear} SEK`;
 
   document.getElementById(
     "startSalaryLabel"
@@ -33,20 +33,21 @@ const setStartValues = () => {
 const validateInput = (startIncome, todayIncome) => {
   if (isNaN(startIncome)) {
     document.getElementById("startSalaryLabel").innerHTML =
-      "Your monthly wage when starting working: (Please provide a number)";
+      "Your monthly salary when starting working: (Please provide a number)";
     return;
   }
 
   if (isNaN(todayIncome)) {
     document.getElementById("currentSalaryLabel").innerHTML =
-      "Your monthly wage today: (Please provide a number)";
+      "Your monthly salary today: (Please provide a number)";
     return;
   }
 
-  document.getElementById("currentSalaryLabel").innerHTML = "Monthly wage now:";
+  document.getElementById("currentSalaryLabel").innerHTML =
+    "Monthly salary now:";
 
   document.getElementById("startSalaryLabel").innerHTML =
-    "Monthly wage when starting working:";
+    "Monthly salary when starting working:";
 };
 
 const setTableValues = (incomeData) => {
