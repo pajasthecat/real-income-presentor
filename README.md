@@ -2,7 +2,7 @@
 
 Static site that presents some basic data on your income growth and other wealth metrics.
 
-Deployed through Cloudflare Pages [here](salary-snapshot.pages.dev/).
+Deployed through Cloudflare Pages [here](https://salary-snapshot.pages.dev//).
 
 ## Data
 
