@@ -2,7 +2,7 @@
 
 Static site that presents some basic data on your income growth and other wealth metrics.
 
-Deployed [here](https://real-income-presentor.pages.dev/).
+Deployed through Cloudflare Pages [here](salary-snapshot.pages.dev/).
 
 ## Data
 
@@ -16,4 +16,4 @@ Data is from SCB.
 
 To fetch and map the data I have a ETL pipeline to fetch the income data form SCB and then transform it and save it in the `/public` folder.
 
-I have a cron jb that fetches the data once a month. This can also be done manually on the dev machine or in a pipeline in github.
+I have a cron job that fetches the data once a month. This can also be done manually on the dev machine or in a pipeline in github.
