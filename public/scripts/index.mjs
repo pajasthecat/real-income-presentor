@@ -6,6 +6,9 @@ import {
   formatAndRoundCurrency,
 } from "../scripts/src/incomeService.mjs";
 
+const currentSalaryPlaceholder = "Current monthly salary, in SEK.";
+const startSalaryPlaceholder = "Monthly salary when starting working, in SEK.";
+
 const setTableHeaders = (startYear) => {
   document.getElementById(
     "incomeDistStart"
@@ -19,9 +22,14 @@ const setTableHeaders = (startYear) => {
     "todayWageInThenCurrencyLabel"
   ).innerHTML = `Your salary today calculated in ${startYear} SEK`;
 
-  document.getElementById(
-    "startSalaryLabel"
-  ).innerHTML = `Monthly wage in ${startYear} SEK:`;
+  const currentSalary = document.getElementById("currentSalary");
+  const startSalary = document.getElementById("startSalary");
+
+  currentSalary.placeholder = currentSalaryPlaceholder;
+  currentSalary.size = currentSalaryPlaceholder.length - 5;
+
+  startSalary.size = startSalaryPlaceholder.length - 5;
+  startSalary.placeholder = startSalaryPlaceholder;
 };
 
 const setStartValues = () => {
@@ -31,23 +39,31 @@ const setStartValues = () => {
 };
 
 const validateInput = (startIncome, todayIncome) => {
+  const currentSalary = document.getElementById("currentSalary");
+  const startSalary = document.getElementById("startSalary");
+
   if (isNaN(startIncome)) {
-    document.getElementById("startSalaryLabel").innerHTML =
-      "Your monthly salary when starting working: (Please provide a number)";
+    const startSalaryValidationPlaceholder = `${startSalaryPlaceholder} (Please provide a number)`;
+    startSalary.placeholder = startSalaryValidationPlaceholder;
+    startSalary.size = startSalaryValidationPlaceholder.length;
+    startSalary.value = "";
+
     return;
   }
 
   if (isNaN(todayIncome)) {
-    document.getElementById("currentSalaryLabel").innerHTML =
-      "Your monthly salary today: (Please provide a number)";
+    const currentValidationSalaryPlaceholder = `${currentSalaryPlaceholder} (Please provide a number)`;
+    currentSalary.placeholder = currentValidationSalaryPlaceholder;
+    currentSalary.size = currentValidationSalaryPlaceholder.length;
+    currentSalary.value = null;
     return;
   }
 
-  document.getElementById("currentSalaryLabel").innerHTML =
-    "Monthly salary now:";
+  currentSalary.placeholder = currentSalaryPlaceholder;
+  currentSalary.size = currentSalary.value.length;
 
-  document.getElementById("startSalaryLabel").innerHTML =
-    "Monthly salary when starting working:";
+  startSalary.size = startSalary.value.length;
+  startSalary.placeholder = startSalaryPlaceholder;
 };
 
 const setTableValues = (incomeData) => {
