@@ -8,17 +8,28 @@ p {
   font-style: normal;
   line-height: 1.9;
 }
-.form-div {
+.text-div {
   margin: auto;
   width: 40%;
   padding-bottom: 10px;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.formItemSelect {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
 }
 
 h1 {
   text-align: center;
   font-weight: 700;
   font-style: normal;
-
 }
 h2 {
   text-align: center;
@@ -57,6 +68,7 @@ input {
   font-family: "Poppins", sans-serif;
   font-size: 14px;
 }
+
 select {
   font-weight: 400;
   font-family: "Poppins", sans-serif;
@@ -104,7 +116,9 @@ img {
 @media screen and (max-width: 800px) {
   table,
   footer,
-  .form-div {
+  th,
+  td,
+  .text-div {
     width: 90%;
     font-size: small;
   }

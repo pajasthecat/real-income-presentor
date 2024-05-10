@@ -6,6 +6,25 @@ import {
   formatAndRoundCurrency,
 } from "../scripts/src/incomeService.mjs";
 
+const setStartSalaryLabel = (startYear) =>
+  (document.getElementById(
+    "startSalaryLabel"
+  ).innerHTML = `Monthly salary in ${startYear}, in SEK.`);
+
+const setCurrentSalaryLabel = () =>
+  (document.getElementById("currentSalaryLabel").innerHTML =
+    "Current monthly salary, in SEK.");
+
+const setStartSalaryLabelValidationError = (startYear) =>
+  (document.getElementById(
+    "startSalaryLabel"
+  ).innerHTML = `Monthly salary in ${startYear}, in SEK. (Please provide a number)`);
+
+const setCurrentSalaryLabelValidationError = () =>
+  (document.getElementById(
+    "currentSalaryLabel"
+  ).innerHTML = `Current monthly salary, in SEK. (Please provide a number)`);
+
 const setTableHeaders = (startYear) => {
   document.getElementById(
     "incomeDistStart"
@@ -19,9 +38,9 @@ const setTableHeaders = (startYear) => {
     "todayWageInThenCurrencyLabel"
   ).innerHTML = `Your salary today calculated in ${startYear} SEK`;
 
-  document.getElementById(
-    "startSalaryLabel"
-  ).innerHTML = `Monthly wage in ${startYear} SEK:`;
+  setStartSalaryLabel(startYear);
+
+  setCurrentSalaryLabel();
 };
 
 const setStartValues = () => {
@@ -30,24 +49,20 @@ const setStartValues = () => {
   setTableHeaders(startYear.value);
 };
 
-const validateInput = (startIncome, todayIncome) => {
+const validateInput = (startIncome, todayIncome, startYear) => {
   if (isNaN(startIncome)) {
-    document.getElementById("startSalaryLabel").innerHTML =
-      "Your monthly salary when starting working: (Please provide a number)";
+    setStartSalaryLabelValidationError(startYear);
     return;
   }
 
   if (isNaN(todayIncome)) {
-    document.getElementById("currentSalaryLabel").innerHTML =
-      "Your monthly salary today: (Please provide a number)";
+    setCurrentSalaryLabelValidationError();
     return;
   }
 
-  document.getElementById("currentSalaryLabel").innerHTML =
-    "Monthly salary now:";
+  setCurrentSalaryLabel();
 
-  document.getElementById("startSalaryLabel").innerHTML =
-    "Monthly salary when starting working:";
+  setStartSalaryLabel(startYear);
 };
 
 const setTableValues = (incomeData) => {
@@ -116,7 +131,7 @@ form.addEventListener("submit", (event) => {
   const startIncome = parseInt(startSalary.value);
   const todayIncome = parseInt(currentSalary.value);
 
-  validateInput(startIncome, todayIncome);
+  validateInput(startIncome, todayIncome, startYearInput.value);
 
   const incomeData = getIncomeData(
     {
