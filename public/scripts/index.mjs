@@ -9,34 +9,34 @@ import {
 const setStartSalaryLabel = (startYear) =>
   (document.getElementById(
     "startSalaryLabel"
-  ).innerHTML = `Monthly salary in ${startYear}, in SEK.`);
+  ).innerHTML = `Månadslön år ${startYear}, i SEK.`);
 
 const setCurrentSalaryLabel = () =>
   (document.getElementById("currentSalaryLabel").innerHTML =
-    "Current monthly salary, in SEK.");
+    "Nuvarande månadslön, i SEK.");
 
 const setStartSalaryLabelValidationError = (startYear) =>
   (document.getElementById(
     "startSalaryLabel"
-  ).innerHTML = `Monthly salary in ${startYear}, in SEK. (Please provide a number)`);
+  ).innerHTML = `Månadslön år  ${startYear}, in SEK. (Vänligen uppge en siffra)`);
 
 const setCurrentSalaryLabelValidationError = () =>
   (document.getElementById(
     "currentSalaryLabel"
-  ).innerHTML = `Current monthly salary, in SEK. (Please provide a number)`);
+  ).innerHTML = `Nuvarande månadslön, i SEK. (Vänligen uppge en siffra)`);
 
 const setTableHeaders = (startYear) => {
   document.getElementById(
     "incomeDistStart"
-  ).innerHTML = `Income distribution in ${startYear}`;
+  ).innerHTML = `Din plats i inkomstfördelning ${startYear}`;
 
   document.getElementById(
     "startSalaryInTodaysCurrencyLabel"
-  ).innerHTML = `Equivalent to your start salary in todays SEK.`;
+  ).innerHTML = `Din startlön beräknat i dagens penningvärde.`;
 
   document.getElementById(
     "todayWageInThenCurrencyLabel"
-  ).innerHTML = `Your salary today calculated in ${startYear} SEK`;
+  ).innerHTML = `Din lön nu beräknat i ${startYear} års penningvärde`;
 
   setStartSalaryLabel(startYear);
 
@@ -106,13 +106,13 @@ const setTableValues = (incomeData) => {
     const oldStart = localStorage.getItem("start");
     localStorage.setItem("start", start);
     if (oldStart) document.getElementById(oldStart).innerHTML = "";
-    document.getElementById(start).innerHTML = "You were here";
+    document.getElementById(start).innerHTML = "Du var här  ";
   }
   if (today) {
     const oldToday = localStorage.getItem("today");
     localStorage.setItem("today", today);
     if (oldToday) document.getElementById(`${oldToday}_now`).innerHTML = "";
-    document.getElementById(`${today}_now`).innerHTML = "You are here";
+    document.getElementById(`${today}_now`).innerHTML = "Du är här";
   }
 };
 

@@ -1,23 +1,52 @@
 body {
   font-family: "Poppins", sans-serif;
-  font-size: 16px;
+  font-size: 14px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
 }
+
 p {
   text-align: left;
   font-weight: 400;
   font-style: normal;
   line-height: 1.9;
 }
-.text-div {
-  margin: auto;
-  width: 40%;
-  padding-bottom: 10px;
+
+h1,
+h2 {
+  text-align: center;
 }
 
-.formContainer {
+table {
+  text-align: left;
+  margin: auto;
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  padding: 8px;
+  font-weight: 300;
+  font-style: normal;
+  font-size: small;
+}
+
+td {
+  text-align: center;
+}
+
+.inputContainer {
   display: flex;
   flex-direction: column;
-  gap: 1px;
+  gap: 5px;
+  font-size: 15px;
+}
+
+input {
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
 }
 
 .formItemSelect {
@@ -26,21 +55,24 @@ p {
   gap: 10px;
 }
 
-h1 {
-  text-align: center;
-  font-weight: 700;
-  font-style: normal;
+.footerContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 20px;
 }
-h2 {
-  text-align: center;
-  font-weight: 500;
-  font-style: normal;
+
+.footerImageContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 40px;
 }
-table {
-  border-collapse: collapse;
-  width: 40%;
-  margin-left: auto;
-  margin-right: auto;
+
+.footerTextContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .button {
@@ -63,63 +95,14 @@ table {
   touch-action: manipulation;
 }
 
-input {
-  font-weight: 400;
-  font-family: "Poppins", sans-serif;
-  font-size: 14px;
-}
-
 select {
   font-weight: 400;
   font-family: "Poppins", sans-serif;
   font-size: 14px;
 }
 
-td,
-th {
-  border: 1px solid #dddddd;
-  text-align: center;
-  padding: 8px;
-  font-weight: 300;
-  font-style: normal;
-}
-
-footer {
-  margin: auto;
-  margin-top: 20px;
-  width: 40%;
-}
-
-.footerContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.footerImageContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 40px;
-}
-
-.footerTextContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
-img {
-  width: 100%;
-}
-
 @media screen and (max-width: 800px) {
-  table,
-  footer,
-  th,
-  td,
-  .text-div {
+  body {
     width: 90%;
-    font-size: small;
   }
 }
