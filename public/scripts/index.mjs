@@ -28,7 +28,7 @@ const setCurrentSalaryLabelValidationError = () =>
 const setTableHeaders = (startYear) => {
   document.getElementById(
     "incomeDistStart"
-  ).innerHTML = `Din plats i inkomstfördelning ${startYear}`;
+  ).innerHTML = `Din plats i inkomstfördelningen ${startYear}`;
 
   document.getElementById(
     "startSalaryInTodaysCurrencyLabel"
