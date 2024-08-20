@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="icon" type="image/png" href="images/money.png" />
+    <link rel="icon" type="image/png" href="images/salary.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -16,28 +16,31 @@
     />
     <meta name="keywords" content="Salary growth, income distribution" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Salary Snapshot</title>
+    <title>Löneguiden - Få koll på din löneutveckling</title>
   </head>
   <body>
-    <h1>Salary Snapshot</h1>
-    <div class="text-div">
+    <h1>Löneguiden &#128176 </h1>
       <p>
-        How has your salary changed since you started working? What has the
-        change been in real and nominal terms?
+        Löneguiden hjälper dig att förstå din löneutveckling genom att
+        analysera både din reala och nominella lön. Nominell lön är din faktiska
+        inkomst utan justeringar, medan real lön tar hänsyn till inflation,
+        vilket ger en tydligare bild av din verkliga köpkraft över tid.
       </p>
 
       <p>
-        How has other peoples salaries changed in comparison with yours? Where
-        in the income distribution are you placed?
+        Guiden visar hur din lön har förändrats och om den har hållit jämna steg
+        med inflationen. Dessutom hjälper den dig att förstå var du står i
+        inkomstfördelningen, just nu och över tid, så att du kan se hur din lön jämförs med andra.
       </p>
       <p>
-        Find out by filling out the form below, and press submit. Data is used
-        for calculation, nothing is saved.
+        Med denna information får du insikt i din ekonomiska situation och kan
+        använda den i löneförhandlingar eller karriärplanering, vilket gör det
+        enklare att fatta välgrundade beslut för framtiden.
       </p>
       <form id="dataForm">
-        <div class="formContainer">
+        <div class="inputContainer">
           <div class="formItemSelect">
-            <label for="startYear">Year you started working:</label>
+            <label for="startYear">Året du började arbeta:</label>
             <select id="startYear" name="startYear">
               <option value="2005">2005</option>
               <option value="2006">2006</option>
@@ -68,28 +71,27 @@
             id="currentSalary"
             name="currentSalary"
           /><br /><br />
-          <input type="submit" class="button" value="Submit" />
+          <input type="submit" class="button" value="Räkna ut" />
         </div>
       </form>
-    </div>
 
-    <h2>Salary growth</h2>
+    <h2 id="elementToScroll">Löneutveckling</h2>
     <table>
       <tr>
-        <th>Nominal salary increase in SEK</th>
+        <th>Nominell löneökning i SEK</th>
         <td id="nominalWage">0 kr</td>
       </tr>
       <tr>
-        <th>Nominal salary increase in %</th>
+        <th>Nominell löneökning i %</th>
         <td id="nominalWagePer">0 %</td>
       </tr>
       <tr>
-        <th>Real salary increase in SEK</th>
+        <th>Reallöneutveckling i SEK</th>
         <td id="realWage">0 kr</td>
       </tr>
 
       <tr>
-        <th>Real salary increase in %</th>
+        <th>Reallöneutveckling i %</th>
         <td id="realWagePer">0 %</td>
       </tr>
 
@@ -108,11 +110,11 @@
     <h2 id="incomeDistStart"></h2>
     <table>
       <tr>
-        <th>10th percentil</th>
-        <th>25th percentil</th>
-        <th>50th percentil</th>
-        <th>75th percentil</th>
-        <th>90th percentil</th>
+        <th>percentil 10</th>
+        <th>percentil 25</th>
+        <th>percentil 50</th>
+        <th>percentil 75</th>
+        <th>percentil 90</th>
       </tr>
       <tr>
         <td id="per10"></td>
@@ -124,14 +126,14 @@
     </table>
     <br />
 
-    <h2>Income distribution now</h2>
+    <h2>Din plats i inkomstfördelning nu</h2>
     <table>
       <tr>
-        <th>10th percentil</th>
-        <th>25th percentil</th>
-        <th>50th percentil</th>
-        <th>75th percentil</th>
-        <th>90th percentil</th>
+        <th>percentil 10</th>
+        <th>percentil 25</th>
+        <th>percentil 50</th>
+        <th>percentil 75</th>
+        <th>percentil 90</th>
       </tr>
       <tr>
         <td id="per10_now"></td>

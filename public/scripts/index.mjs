@@ -9,39 +9,42 @@ import {
 const setStartSalaryLabel = (startYear) =>
   (document.getElementById(
     "startSalaryLabel"
-  ).innerHTML = `Monthly salary in ${startYear}, in SEK.`);
+  ).innerHTML = `Månadslön år ${startYear}, i SEK.`);
 
 const setCurrentSalaryLabel = () =>
   (document.getElementById("currentSalaryLabel").innerHTML =
-    "Current monthly salary, in SEK.");
+    "Nuvarande månadslön, i SEK.");
 
 const setStartSalaryLabelValidationError = (startYear) =>
   (document.getElementById(
     "startSalaryLabel"
-  ).innerHTML = `Monthly salary in ${startYear}, in SEK. (Please provide a number)`);
+  ).innerHTML = `Månadslön år  ${startYear}, in SEK. (Vänligen uppge en siffra)`);
 
 const setCurrentSalaryLabelValidationError = () =>
   (document.getElementById(
     "currentSalaryLabel"
-  ).innerHTML = `Current monthly salary, in SEK. (Please provide a number)`);
+  ).innerHTML = `Nuvarande månadslön, i SEK. (Vänligen uppge en siffra)`);
 
 const setTableHeaders = (startYear) => {
   document.getElementById(
     "incomeDistStart"
-  ).innerHTML = `Income distribution in ${startYear}`;
+  ).innerHTML = `Din plats i inkomstfördelning ${startYear}`;
 
   document.getElementById(
     "startSalaryInTodaysCurrencyLabel"
-  ).innerHTML = `Equivalent to your start salary in todays SEK.`;
+  ).innerHTML = `Din startlön beräknat i dagens penningvärde.`;
 
   document.getElementById(
     "todayWageInThenCurrencyLabel"
-  ).innerHTML = `Your salary today calculated in ${startYear} SEK`;
+  ).innerHTML = `Din lön nu beräknat i ${startYear} års penningvärde`;
 
   setStartSalaryLabel(startYear);
 
   setCurrentSalaryLabel();
 };
+
+export const parseIntFromCurrency = (price) =>
+  Number(price.replace(/[^0-9\.]+/g, ""));
 
 const setStartValues = () => {
   const startYear = document.getElementById("startYear");
@@ -106,14 +109,19 @@ const setTableValues = (incomeData) => {
     const oldStart = localStorage.getItem("start");
     localStorage.setItem("start", start);
     if (oldStart) document.getElementById(oldStart).innerHTML = "";
-    document.getElementById(start).innerHTML = "You were here";
+    document.getElementById(start).innerHTML = "Du var här  ";
   }
   if (today) {
     const oldToday = localStorage.getItem("today");
     localStorage.setItem("today", today);
     if (oldToday) document.getElementById(`${oldToday}_now`).innerHTML = "";
-    document.getElementById(`${today}_now`).innerHTML = "You are here";
+    document.getElementById(`${today}_now`).innerHTML = "Du är här";
   }
+};
+
+const formatInput = (event) => {
+  if (!event?.target?.value) return;
+  event.target.value = formatAndRoundCurrency(event?.target.value);
 };
 
 const form = document.querySelector("#dataForm");
@@ -128,8 +136,8 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
 
   const startYear = parseInt(startYearInput.value);
-  const startIncome = parseInt(startSalary.value);
-  const todayIncome = parseInt(currentSalary.value);
+  const startIncome = parseIntFromCurrency(startSalary.value);
+  const todayIncome = parseIntFromCurrency(currentSalary.value);
 
   validateInput(startIncome, todayIncome, startYearInput.value);
 
@@ -144,6 +152,24 @@ form.addEventListener("submit", (event) => {
   );
 
   setTableValues(incomeData);
+
+  const elementToZoomInto = document.getElementById("elementToScroll");
+
+  elementToZoomInto.scrollIntoView({ behavior: "smooth" });
 });
+
+document
+  .getElementById("startYear")
+  .addEventListener("change", (event) =>
+    setStartSalaryLabel(event.target.value)
+  );
+
+document
+  .getElementById("currentSalary")
+  .addEventListener("focusout", formatInput.bind());
+
+document
+  .getElementById("startSalary")
+  .addEventListener("focusout", formatInput.bind());
 
 setStartValues();

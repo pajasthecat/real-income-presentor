@@ -1,6 +1,14 @@
 export const round = (number) => Math.round(number * 100) / 100;
 
+export const parseIntFromCurrency = (price) =>
+  Number(price.replace(/[^0-9\.]+/g, ""));
+
 export const formatAndRoundCurrency = (price) => {
+  if (typeof price === "string") {
+    const toInt = Number(price.replace(/[^0-9\.]+/g, ""));
+    const roundedPrice = round(toInt);
+    return new Intl.NumberFormat("en-US").format(roundedPrice);
+  }
   const roundedPrice = round(price);
   return new Intl.NumberFormat("en-US").format(roundedPrice);
 };
