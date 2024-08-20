@@ -27,7 +27,7 @@ const getCpiData = async () => {
   return await response.json();
 };
 
-const getWageData = async () => {
+const getWageDataSSYK = async () => {
   const response = await fetch(
     "https://api.scb.se/OV0104/v1/doris/sv/ssd/START/AM/AM0110/AM0110A/LoneSpridSektorYrk4A",
     {
@@ -70,7 +70,7 @@ const getWageData = async () => {
   return await response.json();
 };
 
-const getWageData2 = async () => {
+const getWageDataSSYK2012 = async () => {
   const response = await fetch(
     "https://api.scb.se/OV0104/v1/doris/sv/ssd/START/AM/AM0110/AM0110A/LoneSpridSektorYrk4",
     {
@@ -116,8 +116,8 @@ const getWageData2 = async () => {
 export const collectData = async () => {
   console.log("Fetching data");
   const cpiData = await getCpiData();
-  const wageData1 = await getWageData();
-  const wageData2 = await getWageData2();
+  const wageDataSSYK = await getWageDataSSYK();
+  const wageDataSSYK2012 = await getWageDataSSYK2012();
 
-  return { cpiData, wageData1, wageData2 };
+  return { cpiData, wageDataSSYK, wageDataSSYK2012 };
 };

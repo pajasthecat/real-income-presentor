@@ -43,6 +43,9 @@ const setTableHeaders = (startYear) => {
   setCurrentSalaryLabel();
 };
 
+export const parseIntFromCurrency = (price) =>
+  Number(price.replace(/[^0-9\.]+/g, ""));
+
 const setStartValues = () => {
   const startYear = document.getElementById("startYear");
 
@@ -116,6 +119,11 @@ const setTableValues = (incomeData) => {
   }
 };
 
+const formatInput = (event) => {
+  if (!event?.target?.value) return;
+  event.target.value = formatAndRoundCurrency(event?.target.value);
+};
+
 const form = document.querySelector("#dataForm");
 
 form.addEventListener("submit", (event) => {
@@ -128,8 +136,8 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
 
   const startYear = parseInt(startYearInput.value);
-  const startIncome = parseInt(startSalary.value);
-  const todayIncome = parseInt(currentSalary.value);
+  const startIncome = parseIntFromCurrency(startSalary.value);
+  const todayIncome = parseIntFromCurrency(currentSalary.value);
 
   validateInput(startIncome, todayIncome, startYearInput.value);
 
@@ -144,6 +152,24 @@ form.addEventListener("submit", (event) => {
   );
 
   setTableValues(incomeData);
+
+  const elementToZoomInto = document.getElementById("elementToScroll");
+
+  elementToZoomInto.scrollIntoView({ behavior: "smooth" });
 });
+
+document
+  .getElementById("startYear")
+  .addEventListener("change", (event) =>
+    setStartSalaryLabel(event.target.value)
+  );
+
+document
+  .getElementById("currentSalary")
+  .addEventListener("focusout", formatInput.bind());
+
+document
+  .getElementById("startSalary")
+  .addEventListener("focusout", formatInput.bind());
 
 setStartValues();
