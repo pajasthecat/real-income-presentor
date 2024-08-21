@@ -159,9 +159,7 @@ form.addEventListener("submit", (event) => {
 
 document
   .getElementById("startYear")
-  .addEventListener("change", (event) =>
-    setStartSalaryLabel(event.target.value)
-  );
+  .addEventListener("change", (event) => setTableHeaders(event.target.value));
 
 document
   .getElementById("currentSalary")
