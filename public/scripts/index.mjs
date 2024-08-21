@@ -145,7 +145,6 @@ form.addEventListener("submit", (event) => {
     {
       startYear,
       startIncome,
-      todayYear: 2022,
       todayIncome,
     },
     data

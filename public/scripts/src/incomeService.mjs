@@ -13,7 +13,9 @@ export const formatAndRoundCurrency = (price) => {
   return new Intl.NumberFormat("en-US").format(roundedPrice);
 };
 
-export const getIncomeData = (income, data) => {
+export const getIncomeData = (incomeInput, data) => {
+  const { year: todayYear } = data.slice(-1)[0];
+  const income = { ...incomeInput, todayYear };
   const percentile = getPercentileData(income, data);
 
   const wage = getWageData(income, data);
@@ -63,8 +65,14 @@ const getWageData = (income, data) => {
 
 const getPercentile = (data, income, year) => {
   const { incomeDistribution } = data.find((d) => d.year === year);
+  const { incomeDistribution: incomeDistributionDefault } = data
+    .filter((data) => data.incomeDistribution)
+    .slice(-1)[0];
 
-  return getMatchingPercentile(incomeDistribution, income);
+  return getMatchingPercentile(
+    incomeDistribution ?? incomeDistributionDefault,
+    income
+  );
 };
 
 const getMatchingPercentile = (incomeDistribution, income) => {
