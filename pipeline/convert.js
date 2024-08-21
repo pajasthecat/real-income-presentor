@@ -1,5 +1,5 @@
-const mapWageData = (wageDate) =>
-  wageDate.data.map(({ key, values }) => {
+const mapWageData = (wageData) =>
+  wageData.data.map(({ key, values }) => {
     const valuesInt = values.map((value) => parseInt(value));
     const year = key.map((k) => parseInt(k))[3];
     const [_, per50, per10, per25, per75, per90] = valuesInt;
@@ -58,11 +58,12 @@ const mergeData = (groupedCpiResult, wageData) =>
     return { year, incomeDistribution: null, cpi: cpiRest };
   });
 
-export const convertData = (wageSpread1, wageSpread2, cpiData) => {
-  console.log("Mapping data");
+export const convertData = (wage, cpiData) => {
+  const { wageDataSSYK, wageDataSSYK2012, wageDataSSYK2012an } = wage;
 
-  const wageData = mapWageData(wageSpread1)
-    .concat(mapWageData(wageSpread2))
+  const wageData = mapWageData(wageDataSSYK)
+    .concat(mapWageData(wageDataSSYK2012))
+    .concat(mapWageData(wageDataSSYK2012an))
     .sort((first, second) => first.year - second.year);
 
   const mappedCpiData = mapCpiData(cpiData);
