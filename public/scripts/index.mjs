@@ -157,9 +157,32 @@ form.addEventListener("submit", (event) => {
   elementToZoomInto.scrollIntoView({ behavior: "smooth" });
 });
 
+const createSelector = () => {
+  var select = document.createElement("select");
+  select.id = "startYear";
+  select.name = "startYear";
+
+  const years = data
+    .filter((d) => d.incomeDistribution != undefined)
+    .map((d) => d.year);
+
+  years.forEach((year) => {
+    var opt = document.createElement("option");
+    opt.textContent = year;
+    opt.value = year;
+    select.appendChild(opt);
+  });
+
+  document.getElementById("formItemSelect").appendChild(select);
+};
+
+createSelector();
+
 document
   .getElementById("startYear")
-  .addEventListener("change", (event) => setTableHeaders(event.target.value));
+  .addEventListener("change", (event) =>
+    setStartSalaryLabel(event.target.value)
+  );
 
 document
   .getElementById("currentSalary")
